@@ -20,7 +20,7 @@ public class SpringMmcConfig {
         public void addViewControllers(ViewControllerRegistry registry) {
             registry.addViewController("/").setViewName("login");
             registry.addViewController("/index.html").setViewName("login");
-            registry.addViewController("/main.html").setViewName("test");
+            registry.addViewController("/main.html").setViewName("dashboard");
         }
 
         @Override
