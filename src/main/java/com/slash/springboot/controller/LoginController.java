@@ -1,9 +1,8 @@
 package com.slash.springboot.controller;
 
+import com.slash.springboot.exception.UserNotExistException;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
@@ -25,5 +24,14 @@ public class LoginController {
             map.put("msg","用户和密码错误！");
             return "login";
         }
+    }
+
+    @RequestMapping("/hello")
+    @ResponseBody
+    public String User(@RequestParam("user") String username){
+        if (username.equals("aaa")){
+            throw new UserNotExistException();
+        }
+        return "Wrong user!";
     }
 }
